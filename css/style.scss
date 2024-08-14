@@ -13,17 +13,54 @@ body {
     overflow: hidden
 }
 
-
-.layer {
-    background-position: center;
-    background-size: cover;
+.paralax {
     min-height: 100vh;
-    width: 100vw;
-    position: absolute;
-    // z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
 }
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .layer1, .layer2, .layer3, .layer4, 
+    .layer5, .layer6, .layer7, .layer {
+        background-position: center;
+        background-size: cover;
+        height: 100%;
+         width: 100%;
+        position: absolute;
+        // z-index: 0;
+        // pointer-events: none;
+        overflow: hidden;
+        scale: 1.2;
+    }
+    .layer1 {
+        background-image: url(/images/layer7.png);
+    }
+    .layer2 {
+        background-image: url(/images/layer6.png);
+    }
+    .layer3 {
+        background-image: url(/images/layer5.png);
+    }
+    .layer4 {
+        background-image: url(/images/layer4.png);
+    }
+    .layer5 {
+        background-image: url(/images/layer3.png);
+    }
+    .layer6 {
+        background-image: url(/images/layer2.png);
+    }
+    .layer7 {
+        background-image: url(/images/layer1.png);
+    }
+    .layer {
+        background-image: url(/images/road.png);
+    }
+}
+
+
+
 
 .header {
     // z-index: 1;

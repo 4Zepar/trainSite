@@ -13,14 +13,48 @@ body {
   overflow: hidden;
 }
 
-.layer {
+.paralax {
+  min-height: 100vh;
+}
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.container .layer1, .container .layer2, .container .layer3, .container .layer4,
+.container .layer5, .container .layer6, .container .layer7, .container .layer {
   background-position: center;
   background-size: cover;
-  min-height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   position: absolute;
-  pointer-events: none;
   overflow: hidden;
+  scale: 1.2;
+}
+.container .layer1 {
+  background-image: url(/images/layer7.png);
+}
+.container .layer2 {
+  background-image: url(/images/layer6.png);
+}
+.container .layer3 {
+  background-image: url(/images/layer5.png);
+}
+.container .layer4 {
+  background-image: url(/images/layer4.png);
+}
+.container .layer5 {
+  background-image: url(/images/layer3.png);
+}
+.container .layer6 {
+  background-image: url(/images/layer2.png);
+}
+.container .layer7 {
+  background-image: url(/images/layer1.png);
+}
+.container .layer {
+  background-image: url(/images/road.png);
 }
 
 .header {
