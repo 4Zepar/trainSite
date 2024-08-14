@@ -15,55 +15,80 @@ body {
 
 .paralax {
     min-height: 100vh;
-}
-.container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
 
-    .layer1, .layer2, .layer3, .layer4, 
-    .layer5, .layer6, .layer7, .layer {
-        background-position: center;
-        background-size: cover;
-        height: 100%;
-         width: 100%;
+    .container {
         position: absolute;
-        // z-index: 0;
-        // pointer-events: none;
+        width: 100%;
+        height: 100%;
         overflow: hidden;
-        scale: 1.2;
-    }
-    .layer1 {
-        background-image: url(/images/layer7.png);
-    }
-    .layer2 {
-        background-image: url(/images/layer6.png);
-    }
-    .layer3 {
-        background-image: url(/images/layer5.png);
-    }
-    .layer4 {
-        background-image: url(/images/layer4.png);
-    }
-    .layer5 {
-        background-image: url(/images/layer3.png);
-    }
-    .layer6 {
-        background-image: url(/images/layer2.png);
-    }
-    .layer7 {
-        background-image: url(/images/layer1.png);
-    }
-    .layer {
-        background-image: url(/images/road.png);
+    
+        .layer1, .layer2, .layer3, .layer4, 
+        .layer5, .layer6, .layer7, .layer-road,
+        .layer-train, .layer-grass {
+            background-position: center;
+            background-size: cover;
+            height: 100%;
+             width: 100%;
+            position: absolute;
+            // z-index: 0;
+            // pointer-events: none;
+            overflow: hidden;
+            scale: 1.16;
+            will-change: transfrom;
+        }
+        .layer1 {
+            background-image: url(/images/layer7.png);
+        }
+        .layer2 {
+            background-image: url(/images/layer6.png);
+        }
+        .layer3 {
+            background-image: url(/images/layer5.png);
+        }
+        .layer4 {
+            background-image: url(/images/layer4.png);
+        }
+        .layer5 {
+            background-image: url(/images/layer3.png);
+        }
+        .layer6 {
+            background-image: url(/images/layer2.png);
+        }
+        .layer7 {
+            background-image: url(/images/layer1.png);
+        }
+        .layer {
+            background-image: url(/images/road.png);
+        }
+        .layer-road {
+            background-image: url(/images/roadline.png);
+        }
+        .layer-grass {
+            background-image: url(/images/grass.png);
+        }
+        .layer-train {
+            background-image: url(/images/train.png);
+            animation: trainRide 6s linear infinite;
+            min-width: 911px;
+        }
+    
+        @keyframes trainRide {
+            0% {
+                left: -50%;
+            }
+            100% {
+                left: 110%;
+            }
+        }
     }
 }
+
+
 
 
 
 
 .header {
-    // z-index: 1;
     position: absolute;
     width: 100vw;
     display: flex;
@@ -72,9 +97,11 @@ body {
     
     .container {
         width: calc(var(--index) * 40);
+        //сделать адаптив для менюшки
         height: 100%;
         font-weight: 700;
         font-size: calc(var(--index) * .75);
+        overflow: visible;
 
         .menu {
             display: flex;
