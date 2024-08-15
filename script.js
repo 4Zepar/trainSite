@@ -9,9 +9,7 @@ window.onload = function () {
         let layer5 = document.querySelector('.layer5');
         let layer6 = document.querySelector('.layer6');
         let layer7 = document.querySelector('.layer7');
-        let layerRoad = document.querySelector('.layer-road');
         let layerGrass = document.querySelector('.layer-grass');
-        let layerTrain = document.querySelector('.layer-train');
         
         let forLayer1 = 30;
         let forLayer2 = 20;
@@ -20,11 +18,9 @@ window.onload = function () {
         let forLayer5 = 18;
         let forLayer6 = 13;
         let forLayer7 = 8;
-        let forLayerRoad = 40;
-        let forLayerTrain = 40;
         let forLayerGrass = 18;
 
-        let koef = 0.25;
+        let koef = 0.2;
 
         let positionX = 0, positionY = 0;
         let coordXprocent = 0, coordYprocent = 0;
@@ -43,9 +39,7 @@ window.onload = function () {
             layer5.style.cssText = `transform: translate(${positionX / forLayer5}%, ${positionY / forLayer5}%);`;
             layer6.style.cssText = `transform: translate(${positionX / forLayer6}%, ${positionY / forLayer6}%);`;
             layer7.style.cssText = `transform: translate(${positionX / forLayer7}%, ${positionY / forLayer7}%);`;
-            layerTrain.style.cssText = `transform: translate(${positionX / forLayerTrain}%, ${positionY / forLayerTrain}%);`;
             layerGrass.style.cssText = `transform: translate(${positionX / forLayerGrass}%, ${positionY / forLayerGrass}%);`;
-            layerRoad.style.cssText = `transform: translate(${positionX / forLayerRoad}%, ${positionY / forLayerRoad}%);`;
 
             requestAnimationFrame(ParalaxStyles);
         }
@@ -62,4 +56,14 @@ window.onload = function () {
             coordYprocent = coordY / paralaxH * 100;
         });
     }
+    let road = document.querySelector('.layer-road');
+    let train = document.querySelector('.layer-train');
+
+    window.addEventListener("scroll", function (e) {
+        let height = window.scrollY;
+        let speed = 0.3;
+        
+        road.style.cssText = `transform: translateY(${height * speed}px);`;
+        train.style.cssText = `transform: translateY(${height * speed}px);`;
+    });
 }

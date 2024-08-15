@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -10,29 +11,41 @@
 body {
   color: white;
   font-family: "Quicksand", sans-serif;
-  overflow: hidden;
+  height: 250vh;
 }
 
 .paralax {
   min-height: 100vh;
+  overflow: hidden;
 }
 .paralax .container {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 .paralax .container .layer1, .paralax .container .layer2, .paralax .container .layer3, .paralax .container .layer4,
 .paralax .container .layer5, .paralax .container .layer6, .paralax .container .layer7, .paralax .container .layer-road,
-.paralax .container .layer-train, .paralax .container .layer-grass {
+.paralax .container .layer-train, .paralax .container .layer-grass, .paralax .container .woomen {
   background-position: center;
   background-size: cover;
   height: 100%;
   width: 100%;
-  position: absolute;
+  position: fixed;
   overflow: hidden;
   scale: 1.16;
   will-change: transfrom;
+  backface-visibility: hidden;
+  animation-timeline: scroll();
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-range: 0 150vh;
+  animation-name: animateBg;
+}
+@keyframes animateBg {
+  to {
+    scale: 1;
+  }
 }
 .paralax .container .layer1 {
   background-image: url(/images/layer7.png);
@@ -55,11 +68,25 @@ body {
 .paralax .container .layer7 {
   background-image: url(/images/layer1.png);
 }
-.paralax .container .layer {
-  background-image: url(/images/road.png);
+.paralax .container .woomen {
+  background-image: url(/images/train\ night\ копия.png);
+  scale: 6;
+  filter: blur(10px);
+  animation-timeline: scroll();
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-range: 0 150vh;
+  animation-name: trainWindow;
+}
+@keyframes trainWindow {
+  to {
+    scale: 1;
+    filter: blur(0);
+  }
 }
 .paralax .container .layer-road {
   background-image: url(/images/roadline.png);
+  will-change: auto;
 }
 .paralax .container .layer-grass {
   background-image: url(/images/grass.png);
@@ -68,6 +95,7 @@ body {
   background-image: url(/images/train.png);
   animation: trainRide 6s linear infinite;
   min-width: 911px;
+  will-change: auto;
 }
 @keyframes trainRide {
   0% {
@@ -80,17 +108,17 @@ body {
 
 .header {
   position: absolute;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   padding: calc(var(--index) * 1.2) 0 0;
 }
 .header .container {
+  position: relative;
   width: calc(var(--index) * 40);
   height: 100%;
   font-weight: 700;
   font-size: calc(var(--index) * 0.75);
-  overflow: visible;
 }
 .header .container .menu {
   display: flex;
