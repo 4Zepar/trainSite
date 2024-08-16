@@ -56,6 +56,8 @@ window.onload = function () {
             coordYprocent = coordY / paralaxH * 100;
         });
     }
+
+    
     let road = document.querySelector('.layer-road');
     let train = document.querySelector('.layer-train');
 
