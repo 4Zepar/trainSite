@@ -57,6 +57,7 @@ window.onload = function () {
         });
     }
 
+
     
     let road = document.querySelector('.layer-road');
     let train = document.querySelector('.layer-train');
@@ -67,5 +68,65 @@ window.onload = function () {
         
         road.style.cssText = `transform: translateY(${height * speed}px);`;
         train.style.cssText = `transform: translateY(${height * speed}px);`;
+    });
+
+
+
+
+    let menu = document.querySelector('.line');
+    let button = document.querySelector('.menu');
+
+    let zeroScale = () => {
+        button.style.cssText = `scale: 1.`;
+    }
+
+    button.addEventListener('mouseover', function (e) {
+
+        menu.style.cssText = `transform: rotate(180deg);`;
+        button.style.cssText = `scale: 1.05`;
+        setTimeout(zeroScale, 200);
+    });
+
+    button.addEventListener('mouseout', function (e) {
+
+        menu.style.cssText = `transform: rotate(0);`;
+    });
+
+    button.addEventListener('click', function (e) {
+
+        button.style.cssText = `scale: 1.05`;
+        setTimeout(zeroScale, 200);
+    });
+
+
+
+    let closeButton = document.querySelector('.button-close');
+    let contentMenu = document.querySelector('.content-menu');
+    button.addEventListener('click', function() {
+        contentMenu.style.transform = 'translateX(0%)';
+        closeButton.style.scale = '1';
+        closeButton.style.transform = 'rotate(90deg)';
+
+    });
+    closeButton.addEventListener('click', function (e) {
+
+        closeButton.style.cssText = `scale: 1.05`;
+        setTimeout(zeroScale, 200);
+    });
+    closeButton.addEventListener('click', function() {
+        contentMenu.style.transform = 'translateX(-100%)';
+        closeButton.style.scale = '0';
+        closeButton.style.transform = 'rotate(-90deg)';
+    });
+   
+
+
+
+
+    let mail = document.querySelector('.mail');
+    mail.addEventListener('click', function () {
+        navigator.clipboard.writeText(mail.innerText).then(function() {
+            alert('Copied to clipboard');
+        });
     });
 }
