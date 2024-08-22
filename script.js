@@ -100,6 +100,7 @@ window.onload = function () {
 
 
 
+
     let closeButton = document.querySelector('.button-close');
     let contentMenu = document.querySelector('.content-menu');
     button.addEventListener('click', function() {
@@ -129,4 +130,36 @@ window.onload = function () {
             alert('Copied to clipboard');
         });
     });
+
+
+
+    let targetHeight = window.innerHeight * 1.5;
+    let contentScreen = document.querySelector('.content');
+
+    window.addEventListener('scroll', function () {
+        let scroll = window.scrollY;
+        let speed = 0.001;
+    
+        if (scroll >= targetHeight) {
+            let newOpacity = Math.min(1, (scroll - targetHeight) * speed); 
+            contentScreen.style.opacity = newOpacity;
+
+            if (contentScreen.style.opacity == 1) {
+                    contentScreen.style.margin = '250vh 0 0';
+                    contentScreen.style.position = 'absolute';
+                }
+            if (contentScreen.style.opacity < 1) {
+                contentScreen.style.margin = '0';
+                contentScreen.style.position = 'fixed';
+            }
+        }
+    });
+
+        // let computedOpacity = window.getComputedStyle(contentScreen).opacity;
+        
+        // if (computedOpacity == 1) {
+        //     contentScreen.style.margin = '250vh 0 0';
+        //     contentScreen.style.position = 'absolute';
+        // }
+
 }
