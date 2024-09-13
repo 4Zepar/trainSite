@@ -6,10 +6,32 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Oldenburg&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Varela&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
     <script src="script.js" defer></script>
+    <script src="form.js" defer></script>
     <title>Train tickets</title>
 </head>
 <body>
+    <div class="login-screen">
+        <div class="login-form">
+            <div class="container">
+                <div class="sidebg"></div>
+                <div class="form">
+                    <div class="title"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-screen">
+        <div class="modal">
+            <div class="container">
+                <div class="title">Thanks for your purchase!</div>
+                <div class="subtitle">Trainlines</div>
+            </div>
+        </div>
+    </div>
+    
     <div class="paralax">
         <div class="container">
             <div class="layer1"></div>
@@ -23,6 +45,7 @@
             <div class="layer-train"></div>  
             <div class="layer-grass"></div>
             <div class="woomen"></div>
+            <div class="train-door"></div>
         </div>
 
         <div class="header">
@@ -38,14 +61,12 @@
                     <p>menu</p>
                 </div>
                 <ul class="navbar">
-                    <li class="navbar_elem">About</li>
                     <li class="navbar_elem">Order</li>
-                    <li class="navbar_elem">Contacts</li>
                     <li class="navbar_elem">Login</li>
                     <li class="navbar_elem">Help</li>
                     <li class="navbar_elem">Language</li>
                 </ul>
-                <div class="brand">TrainLines</div>
+                <div class="brand"><span>TRAIN</span>LINES</div>
             </div>
         </div>
 
@@ -105,17 +126,139 @@
 
         <section class="content">
             <div class="container">
-                <div class="heading">
-                    About this website
-                </div>
-                <div class="details">
-                    <div class="text-area">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam deleniti excepturi delectus sequi nesciunt ea, aliquam illo maiores consequatur necessitatibus impedit exercitationem reprehenderit, omnis quod deserunt odio, neque culpa reiciendis.
+                <div class="side-clue"></div>
+                <article class="about">
+                    <div class="about-picture"></div>
+                    <div class="about-content whyus">
+                        <div class="heading">Why us?</div>
+                        <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure placeat eaque beatae ab et labore asperiores doloremque natus quis veritatis voluptatem perspiciatis, itaque amet vel! Molestiae quibusdam sequi eos libero.</div>
                     </div>
-                    <div class="text-area">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam deleniti excepturi delectus sequi nesciunt ea, aliquam illo maiores consequatur necessitatibus impedit exercitationem reprehenderit, omnis quod deserunt odio, neque culpa reiciendis.
+                    <div class="about-content facts">
+                        <div class="heading">Some facts</div>
+                        <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure placeat eaque beatae ab et labore asperiores doloremque natus quis veritatis voluptatem perspiciatis, itaque amet vel! Molestiae quibusdam sequi eos libero.</div>
                     </div>
-                </div>  
+                    <div class="about-content website">
+                        <div class="heading">This website</div>
+                        <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure placeat eaque beatae ab et labore asperiores doloremque natus quis veritatis voluptatem perspiciatis, itaque amet vel! Molestiae quibusdam sequi eos libero.</div>
+                    </div>
+                </article>
+                <article class="form">                    
+                    <div class="ticket-form">
+                        <form name="mainForm" class="form-main" id="trainTicketForm">
+                            <div class="form-group">
+                                <input name="yourname" class="input-style" pattern="[A-Za-zА-Яа-яЁё]+" maxlength="15" type="text" placeholder="Name" autocomplete="off" required>
+                                <div class="marker">✖</div>
+                            </div>
+                
+                            <div class="form-group">
+                                <input name="surname" class="input-style" type="text" pattern="[A-Za-zА-Яа-яЁё]+" maxlength="20" placeholder="Surname" autocomplete="off" required>
+                                <div class="marker">✖</div>
+                            </div>
+                
+                            <div class="form-group">
+                                <input class="input-style" type="email" placeholder="@Email" autocomplete="off" required>
+                                <div class="marker">✖</div>
+                            </div>
+                
+                
+                            <div class="form-group">
+                                <div class="custom-select">
+                                    <input class="input-style" type="text" pattern="[^\d0-9]+" maxlength="25" id="departure" placeholder="Город отправления" autocomplete="off" required>
+                                    <ul id="cityListDeparture" class="city-list">
+                                        <li data-value="Minsk">Minsk</li>
+                                        <li data-value="Brest">Brest</li>
+                                        <li data-value="Gomel">Gomel</li>
+                                        <li data-value="Vitebsk">Vitebsk</li>
+                                        <li data-value="Grodno">Grodno</li>
+                                        <li data-value="Mogilev">Mogilev</li>
+                                        <li data-value="Moskow">Moskow</li>
+                                        <li data-value="Saint-Petersburg">Saint-Petersburg</li>
+                                    </ul>
+                                </div>
+                                <div class="marker">✖</div>
+                            </div>
+                
+                            <div class="form-group">
+                                <div class="custom-select">
+                                    <input class="input-style" type="text" pattern="[^\d0-9]+" maxlength="25" id="destination" placeholder="Город назначения" autocomplete="off" required>
+                                    <ul id="cityListDestination" class="city-list">
+                                        <li data-value="Minsk">Minsk</li>
+                                        <li data-value="Brest">Brest</li>
+                                        <li data-value="Gomel">Gomel</li>
+                                        <li data-value="Vitebsk">Vitebsk</li>
+                                        <li data-value="Grodno">Grodno</li>
+                                        <li data-value="Mogilev">Mogilev</li>
+                                        <li data-value="Moskow">Moskow</li>
+                                        <li data-value="Saint-Petersburg">Saint-Petersburg</li>
+                                    </ul>
+                                </div>
+                                <div class="marker">✖</div>
+                            </div>
+                           
+                            <div class="form-group">
+                                <input class="input-style" type="text" name="number" pattern="^[1-9]" min="1" max="10" placeholder="How much" autocomplete="off" required>
+                                <div class="marker">✖</div>
+                            </div>
+                
+                            <div class="form-group">
+                                <input class="input-style" type="date" autocomplete="off" placeholder="Время отправки" id="departureDate" autocomplete="off" required>
+                                <div class="marker">✖</div>
+                            </div>
+                
+                            <div class="form-group">
+                                <input class="input-style" type="date" autocomplete="off" placeholder="Время прибытия" id="arrivalDate" autocomplete="off" required>
+                                <div class="marker">✖</div>
+                            </div>
+                
+                            <div class="button-container">
+                                <div class="prise-content">
+                                    <span>$</span>
+                                    <span class="amount">-</span>
+                                </div>
+                                <button class="form-button" type="submit">For purchase</button>
+                            </div>
+                        </form>
+                    </div>
+                </article>
+                <article class="offers">
+                    <div class="offers__title">Where our most popular trips</div>
+                    <div class="offers__trips">
+                        <div class="trips-item">
+                            <div class="item-picture"></div>
+                            <div class="item-name">Moskow - Minsk</div>
+                        </div>
+                        <div class="trips-item">
+                            <div class="item-picture"></div>
+                            <div class="item-name">Moskow - Minsk</div>
+                        </div>
+                        <div class="trips-item">
+                            <div class="item-picture"></div>
+                            <div class="item-name">Moskow - Minsk</div>
+                        </div>
+                        <div class="trips-item">
+                            <div class="item-picture"></div>
+                            <div class="item-name">Moskow - Minsk</div>
+                        </div>
+                        <div class="trips-item">
+                            <div class="item-picture"></div>
+                            <div class="item-name">Moskow - Minsk</div>
+                        </div>
+                        <div class="trips-item">
+                            <div class="item-picture"></div>
+                            <div class="item-name">Moskow - Minsk</div>
+                        </div>
+                        <div class="trips-item">
+                            <div class="item-picture"></div>
+                            <div class="item-name">Moskow - Minsk</div>
+                        </div>
+                        <div class="trips-item">
+                            <div class="item-picture"></div>
+                            <div class="item-name">Moskow - Minsk</div>
+                        </div>
+                    </div>
+                </article>
+                <article class="contacts"></article>
+                <footer class="footer"></footer>
             </div>
         </section>
     </div>
