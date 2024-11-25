@@ -44,6 +44,8 @@ setupCustomSelect('departure', 'cityListDeparture');
 setupCustomSelect('destination', 'cityListDestination');
 
 
+// -------------------------------------------------------------------------------------
+
 
 document.forms.mainForm.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -77,6 +79,8 @@ document.forms.mainForm.addEventListener('submit', function(e) {
     });
 });
 
+
+// -------------------------------------------------------------------------------------
 
 
 flatpickr("#departureDate", {
@@ -155,4 +159,54 @@ submitButton.addEventListener('mouseout', function(e) {
 })
 
 
+// -------------------------------------------------------------------------------------
+
+let headButtons = document.querySelectorAll('.navbar_elem')
+let loginWindow = document.querySelector('.login-form');
+let loginScreen = document.querySelector('.login-screen');
+
+// headButtons[1].style.display = 'none';
+
+headButtons[1].addEventListener('click', function(e) {
+    e.preventDefault();
+
+    setTimeout(() => {
+        loginScreen.style.display = 'flex';
+
+        setTimeout(() => {
+            loginScreen.style.opacity = '1'; 
+            loginScreen.style.backdropFilter = 'blur(.5em)';
+           
+            setTimeout(() => {
+                loginWindow.style.transform = `translateY(calc(var(--index) * 0))`; 
+                loginWindow.style.opacity = '1'; 
+            }, 200)
+        }, 10)
+    }, 10);
+});
+
+loginScreen.addEventListener('click', function(e) {
+    if (e.target === loginScreen) {
+        closeLoginWindow();
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeLoginWindow();
+    }
+});
+
+function closeLoginWindow() {
+    loginWindow.style.transform = `translateY(calc(var(--index) * 3))`; 
+    loginWindow.style.opacity = '0'; 
+    
+    setTimeout(() => {
+        loginScreen.style.opacity = '0'; 
+        loginScreen.style.backdropFilter = '0';
+        setTimeout(() => {
+            loginScreen.style.display = 'none';
+        }, 200)
+    }, 400)
+}
 

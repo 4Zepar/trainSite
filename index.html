@@ -10,19 +10,40 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
     <script src="script.js" defer></script>
     <script src="form.js" defer></script>
+    <script src="buttons.js" defer></script>
     <title>Train tickets</title>
 </head>
 <body>
     <div class="login-screen">
         <div class="login-form">
             <div class="container">
-                <div class="sidebg"></div>
-                <div class="form">
-                    <div class="title"></div>
+                <div class="sidebg">
+                    <div class="circle"></div>
+                </div>
+                <div class="logform">
+                    <div class="title">
+                        <div class="title-main">LOGIN</div>
+                        <div class="title-subtitle">Welcome to my <br>website, enjoy it!</div>
+                    </div>
+                    <form name="logForm" class="logform-main" id="loginForm">
+                        <div class="log-fields">
+                            <div class="form-group">
+                                <input class="input-style" maxlength="20" type="email" placeholder="@Email" autocomplete="off" required>
+                                <div class="marker">✖</div>
+                            </div>
+                
+                            <div class="form-group">
+                                <input name="surname" class="input-style" type="text" pattern="[A-Za-zА-Яа-яЁё]+" maxlength="20" placeholder="Password" autocomplete="off" required>
+                                <div class="marker">✖</div>
+                            </div>
+                        </div>
+                        <button class="log-button" type="submit"><span>JOIN</span></button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="modal-screen">
         <div class="modal">
             <div class="container">
@@ -61,12 +82,20 @@
                     <p>menu</p>
                 </div>
                 <ul class="navbar">
-                    <li class="navbar_elem">Order</li>
-                    <li class="navbar_elem">Login</li>
-                    <li class="navbar_elem">Help</li>
-                    <li class="navbar_elem">Language</li>
+                    <button class="navbar_elem order">Order</button>
+                    <button class="navbar_elem login">Login</button>
+                    <button class="navbar_elem help">Help</button>
+                    <button class="navbar_elem lang">Language</button>
                 </ul>
                 <div class="brand"><span>TRAIN</span>LINES</div>
+            </div>
+        </div>
+        <div class="rights">
+            <div class="container">
+                <button class="home-button">
+                    <div class="circle"></div>
+                </button>
+                <div class="year">©2024</div>
             </div>
         </div>
 
@@ -126,7 +155,6 @@
 
         <section class="content">
             <div class="container">
-                <div class="side-clue"></div>
                 <article class="about">
                     <div class="about-picture"></div>
                     <div class="about-content whyus">
@@ -261,6 +289,8 @@
                 <footer class="footer"></footer>
             </div>
         </section>
+
+        
     </div>
     <!-- -------------------------------------------------------------- -->
 </body>
