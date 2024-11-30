@@ -210,3 +210,52 @@ function closeLoginWindow() {
     }, 400)
 }
 
+// -------------------------------------------------------------------------------------
+
+let contactWindow = document.querySelector('.contact');
+let contactScreen = document.querySelector('.contact-screen');
+
+headButtons[0].addEventListener('click', function(e) {
+    e.preventDefault();
+
+    setTimeout(() => {
+        contactScreen.style.display = 'flex';
+
+        setTimeout(() => {
+            contactScreen.style.opacity = '1'; 
+            contactScreen.style.backdropFilter = 'blur(.5em)';
+           
+            setTimeout(() => {
+                contactWindow.style.transform = `translateY(calc(var(--index) * 0))`; 
+                contactWindow.style.opacity = '1'; 
+            }, 200)
+        }, 10)
+    }, 10);
+});
+
+contactScreen.addEventListener('click', function(e) {
+    if (e.target === contactScreen) {
+        closeContactWindow();
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeContactWindow();
+    }
+});
+
+function closeContactWindow() {
+    contactWindow.style.transform = `translateY(calc(var(--index) * 3))`; 
+    contactWindow.style.opacity = '0'; 
+    
+    setTimeout(() => {
+        contactScreen.style.opacity = '0'; 
+        contactScreen.style.backdropFilter = '0';
+        setTimeout(() => {
+            contactScreen.style.display = 'none';
+        }, 200)
+    }, 400)
+}
+
+
