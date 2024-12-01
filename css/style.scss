@@ -440,6 +440,7 @@ body {
                 .navigation-item { 
                     display: flex;
                     gap: calc(var(--index) * .6);
+                    cursor: pointer;
 
                     .number {
                         font-family: "Quicksand", sans-serif;
@@ -447,17 +448,28 @@ body {
                         font-weight: 600;
                         margin: 0 0 0 calc(var(--index) * 5);
                         padding: calc(var(--index) * .3) 0 0;
+                        user-select: none;
+                        transition: .3s cubic-bezier( 0.98, 0.1, 0.3, 0.9 );
                     }
                     .label {
                         overflow: visible;
                         line-height: 1;
+                        user-select: none;
+                        transition: .3s ease-in-out;
                     }
+                    
                 }
-            }
+                .navigation-item:hover {
+                    color: #9e9bce;
+                    filter: blur(calc(var(--index) * .15));
+                }
+               
+                
+            } 
         }
 
         .info {
-            font-family: "Quicksand", sans-serif;
+            
             font-weight: 600;
             position: fixed;
             display: flex;
@@ -477,12 +489,23 @@ body {
 
                 .mail {
                     cursor: pointer;
+                    transition: .4s ease-in-out;
+                }
+                .mail:hover {
+                    color: #8d89c3;
                 }
             }
             .links {
                 line-height: .9;
                 font-weight: 500;
                 font-size: calc(var(--index) * .6);
+            }
+
+            .elem {
+                transition: .4s ease-in-out;
+            }
+            .elem:hover {
+                color: #8d89c3;
             }
         }
     }

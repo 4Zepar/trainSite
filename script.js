@@ -129,13 +129,36 @@ window.onload = function () {
 
    
 
-
-
-
     let mail = document.querySelector('.mail');
     mail.addEventListener('click', function () {
         navigator.clipboard.writeText(mail.innerText).then(function() {
             alert('Copied to clipboard');
         });
     });
+
+    //------------------------------------------------------------------------------------
+
+    const navItems = document.querySelectorAll(".navigation-item");
+    const sections = document.querySelectorAll("article");
+
+    navItems.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        
+        if (index == 0) {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+                block: "center",
+            });
+        } else {
+            sections[index].scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+            });
+        }
+        contentMenu.style.transform = 'translateX(-101%)';
+        closeButton.style.scale = '0';
+        closeButton.style.transform = 'rotate(-90deg)';
+      });
+    });     
 }

@@ -391,6 +391,7 @@ body {
 .paralax .content-menu .container .navigation .navigation-item {
   display: flex;
   gap: calc(var(--index) * 0.6);
+  cursor: pointer;
 }
 .paralax .content-menu .container .navigation .navigation-item .number {
   font-family: "Quicksand", sans-serif;
@@ -398,13 +399,24 @@ body {
   font-weight: 600;
   margin: 0 0 0 calc(var(--index) * 5);
   padding: calc(var(--index) * 0.3) 0 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transition: 0.3s cubic-bezier(0.98, 0.1, 0.3, 0.9);
 }
 .paralax .content-menu .container .navigation .navigation-item .label {
   overflow: visible;
   line-height: 1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transition: 0.3s ease-in-out;
+}
+.paralax .content-menu .container .navigation .navigation-item:hover {
+  color: #9e9bce;
+  filter: blur(calc(var(--index) * 0.15));
 }
 .paralax .content-menu .info {
-  font-family: "Quicksand", sans-serif;
   font-weight: 600;
   position: fixed;
   display: flex;
@@ -423,11 +435,21 @@ body {
 }
 .paralax .content-menu .info .general .mail {
   cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+.paralax .content-menu .info .general .mail:hover {
+  color: #8d89c3;
 }
 .paralax .content-menu .info .links {
   line-height: 0.9;
   font-weight: 500;
   font-size: calc(var(--index) * 0.6);
+}
+.paralax .content-menu .info .elem {
+  transition: 0.4s ease-in-out;
+}
+.paralax .content-menu .info .elem:hover {
+  color: #8d89c3;
 }
 .paralax .content {
   min-height: 200vh;
@@ -826,9 +848,7 @@ body {
   display: none;
   justify-content: center;
   z-index: 10;
-  transition: -webkit-backdrop-filter 0.2s ease-in-out;
-  transition: backdrop-filter 0.2s ease-in-out;
-  transition: backdrop-filter 0.2s ease-in-out, -webkit-backdrop-filter 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .modal-screen .modal, .login-screen .modal, .contact-screen .modal {
   position: absolute;
@@ -875,7 +895,6 @@ body {
   position: fixed;
   opacity: 0;
   align-items: center;
-  z-index: 10;
   transition: all 0.3s ease-in-out;
   background-color: rgba(0, 0, 0, 0.1764705882);
   -webkit-backdrop-filter: 0;
