@@ -79,28 +79,28 @@ body {
         @keyframes animateBg { to {scale: 1} }
         
         .layer1 {
-            background-image: url(/images/layer7.png);
+            background-image: url(../images/layer7.png);
         }
         .layer2 {
-            background-image: url(/images/layer6.png);
+            background-image: url(../images/layer6.png);
         }
         .layer3 {
-            background-image: url(/images/layer5.png);
+            background-image: url(../images/layer5.png);
         }
         .layer4 {
-            background-image: url(/images/layer4.png);
+            background-image: url(../images/layer4.png);
         }
         .layer5 {
-            background-image: url(/images/layer3.png);
+            background-image: url(../images/layer3.png);
         }
         .layer6 {
-            background-image: url(/images/layer2.png);
+            background-image: url(../images/layer2.png);
         }
         .layer7 {
-            background-image: url(/images/layer1.png);
+            background-image: url(../images/layer1.png);
         }
         .woomen {
-            background-image: url(/images//train\ night\ копия.png);
+            background-image: url(../images//train\ night\ копия.png);
             scale: 6;
             filter: blur(10px);
             animation-timeline: scroll();
@@ -116,14 +116,14 @@ body {
         @keyframes trainWindow { to {scale: 1; filter: blur(0)}; }
 
         .layer-road {
-            background-image: url(/images/roadline.png);
+            background-image: url(../images/roadline.png);
             will-change: auto;
         }
         .layer-grass {
-            background-image: url(/images/grass.png);
+            background-image: url(../images/grass.png);
         }
         .layer-train {
-            background-image: url(/images/train.png);
+            background-image: url(../images/train.png);
             // animation: trainRide 6s linear infinite;
             min-width: 911px;
             will-change: auto;
@@ -140,7 +140,7 @@ body {
 
 
         .train-door {
-            background-image: url(/images/train\ door.png);
+            background-image: url(../images/train\ door.png);
             opacity: 0;
             animation-timeline: scroll();
             animation-timing-function: ease-in-out;
@@ -556,10 +556,10 @@ body {
 
                 &-picture {
                     grid-row: 1/4;
-                    background-image: url(/images/original.png);
+                    background-image: url(../images/original.png);
                     background-size: cover;
                     background-position: center;
-                    border-radius: 2em;
+                    border-radius: calc(var(--index) * 1.2);
                 }
 
                 &-content {
@@ -578,38 +578,74 @@ body {
                     }
                 }
 
+                .whyus:after,
+                .facts:after,
+                .website:after {
+                    position: absolute;
+                    font-size: calc(var(--index) * 4.5);
+                    right: -5%;
+                    top: 0;
+                    z-index: 0;
+                    opacity: 20%;
+                    line-height: calc(var(--index) * 4);
+                    font-family: "Quattrocento", serif;
+                }
+            
                 .whyus:after {
                     content: "01";
-                    position: absolute;
-                    font-size: calc(var(--index) * 4.5);
-                    right: -5%;
-                    top: 0;
-                    z-index: 0;
-                    opacity: 20%;
-                    line-height: calc(var(--index) * 4);
-                    font-family: "Quattrocento", serif;
                 }
+            
                 .facts:after {
                     content: "02";
-                    position: absolute;
-                    font-size: calc(var(--index) * 4.5);
-                    right: -5%;
-                    top: 0;
-                    z-index: 0;
-                    opacity: 20%;
-                    line-height: calc(var(--index) * 4);
-                    font-family: "Quattrocento", serif;
                 }
+            
                 .website:after {
                     content: "03";
-                    position: absolute;
-                    font-size: calc(var(--index) * 4.5);
-                    right: -5%;
-                    top: 0;
-                    z-index: 0;
-                    opacity: 20%;
-                    line-height: calc(var(--index) * 4);
-                    font-family: "Quattrocento", serif;
+                }
+            
+                // Медиазапросы для адаптивности
+                @media (max-width: 1024px) {
+                    grid-template: repeat(3, auto) / 1fr; // Одностолбцовая компоновка
+                    &-picture {
+                        grid-row: 1 / 2; // Изображение становится первым элементом
+                        height: 300px; // Задаем фиксированную высоту
+                    }
+                }
+            
+                @media (max-width: 768px) {
+                    gap: calc(var(--index) * 0.5);
+            
+                    &-picture {
+                        height: 250px; // Уменьшаем высоту для более компактного вида
+                    }
+            
+                    &-content {
+                        .heading {
+                            font-size: calc(var(--index) * 1.2); // Уменьшаем заголовок
+                        }
+            
+                        .description {
+                            font-size: calc(var(--index) * 0.8); // Уменьшаем описание
+                        }
+                    }
+                }
+            
+                @media (max-width: 480px) {
+                    gap: calc(var(--index) * 0.3);
+            
+                    &-picture {
+                        height: 200px; // Еще меньше для узких экранов
+                    }
+            
+                    &-content {
+                        .heading {
+                            font-size: calc(var(--index) * 1); // Уменьшаем заголовок еще больше
+                        }
+            
+                        .description {
+                            font-size: calc(var(--index) * 0.7); // Уменьшаем описание
+                        }
+                    }
                 }
             }
 
@@ -819,7 +855,7 @@ body {
         
                 .offers__trips {
                     display: grid;
-                    grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+                    grid-template-columns: repeat(4, 1fr); 
                     gap: calc(var(--index) * 1.5);
 
                     .trips-item {
@@ -827,7 +863,6 @@ body {
                     height: 100%;
 
                         .item-picture {
-                            background-image: url(/images/original.png);
                             background-position: center;
                             background-size: cover;
                             // padding: 8em;
@@ -841,6 +876,43 @@ body {
                             font-size: calc(var(--index) * 1);
                         }
                     }
+
+                    .trips-item:nth-child(1) .item-picture{
+                        background-image: url(../images/trips/moskow.jpg);
+                    }
+                    .trips-item:nth-child(2) .item-picture{
+                        background-image: url(../images/trips/brest.jpg);
+                    }
+                    .trips-item:nth-child(3) .item-picture{
+                        background-image: url(../images/trips/novosib.jpg);
+                    }
+                    .trips-item:nth-child(4) .item-picture{
+                        background-image: url(../images/trips/vitebsk.jpg);
+                    }
+                    .trips-item:nth-child(5) .item-picture{
+                        background-image: url(../images/trips/krasnoyarsk.jpg);
+                    }
+                    .trips-item:nth-child(6) .item-picture{
+                        background-image: url(../images/trips/sochi.jpg);
+                    }
+                    .trips-item:nth-child(7) .item-picture{
+                        background-image: url(../images/trips/krasnodar.jpg);
+                    }
+                    .trips-item:nth-child(8) .item-picture{
+                        background-image: url(../images/trips/kiev.jpg);
+                    }
+
+                    @media (max-width: 1200px) {
+                        grid-template-columns: repeat(3, 1fr); // 3 колонки для экранов меньше 1200px
+                    }
+                
+                    @media (max-width: 900px) {
+                        grid-template-columns: repeat(2, 1fr); // 2 колонки для экранов меньше 900px
+                    }
+                
+                    @media (max-width: 600px) {
+                        grid-template-columns: 1fr; // 1 колонка для экранов меньше 600px
+                    }
                 }
             }
 
@@ -849,7 +921,7 @@ body {
                 display: flex;
                 background-color: #37326ed8;
                 justify-content: center;
-                border-radius: 2.5em 2.5em 0 0;
+                border-radius: calc(var(--index) * 1.7) calc(var(--index) * 1.7) 0 0;
 
                 .container {
                     display: grid;
@@ -868,6 +940,7 @@ body {
                         gap: calc(var(--index) * .2);
                         padding: calc(var(--index) * 1.5) 0 calc(var(--index) * 1.5);
                         grid-row: 1;
+                        flex-wrap: wrap;
 
                         .line {
                             background-color: white;
@@ -901,57 +974,169 @@ body {
                     .general {
                         width: 80%;
                         grid-row: 2;
-                        display: flex;
-                        justify-content: space-between;
-                        position: relative;
-                        padding: 0 0 calc(var(--index) * .7);
-                        // gap: calc(var(--index) * 7);
-
-                        .personal {
-                            // flex: 1;
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr); // Равное деление на 3 столбца
+                        justify-content: center;
+                        align-items: center;
+                        gap: calc(var(--index) * 2); // Пространство между колонками
+                        padding: 0 0 calc(var(--index) * 0.7);
+                        text-align: center;
+                    
+                        .personal, .log-info, .other {
                             display: flex;
+                            flex-direction: column;
                             justify-content: center;
-                            font-size: calc(var(--index) * .7);
+                            align-items: center;
+                            text-align: center;
+                            white-space: nowrap; // Запрет переноса текста
+                            overflow: hidden; // Обрезка, если текст длинный
+                            text-overflow: ellipsis; // Указывает многоточие при обрезке
+                        }
+                    
+                        .personal {
+                            font-size: calc(var(--index) * 0.7);
                             font-weight: 200;
                             pointer-events: none;
                         }
-
+                    
                         .log-info {
-                            display: flex;
-                            flex-direction: column;
-                            justify-content:flex-start;
-                            align-items: center;
-                            flex: 1;
-                            position: absolute;
-                            inset: 0;
-                            transform: translateY(calc(var(--index) * -.7));
-                            pointer-events: none;
-
+                            .brand {
+                                font-size: calc(var(--index) * 1);
+                                font-weight: bold;
+                            }
+                    
                             .copyright {
-                                font-size: calc(var(--index) * .5);
+                                font-size: calc(var(--index) * 0.5);
                                 opacity: 70%;
                             }
                         }
-
+                    
                         .other {
                             display: flex;
-                            gap: calc(var(--index) * 2);
-                            justify-content: center;
-                            align-items: center;
-                            // flex: 1;
-                            font-weight: 600;
-
+                            flex-direction: row;
+                            font-size: calc(var(--index) * 0.75);
+                            gap: calc(var(--index) * 0.5); // Расстояние между кнопками
+                    
                             .info, .page-navigation {
                                 cursor: pointer;
-                                transition: all .2s ease-in-out;
-                            }
-
-                            .info:hover, .page-navigation:hover {
-                                color: #766cec;
+                                transition: all 0.2s ease-in-out;
+                                text-align: center;
+                    
+                                &:hover {
+                                    color: #766cec;
+                                }
                             }
                         }
                     }
+
+                    @media (max-width: 1024px) {
+                        .icons {
+                            justify-content: space-evenly;
+                            gap: calc(var(--index) * 0.4);
+
+                            .line {
+                                width: calc(var(--index) * 4); // Уменьшаем ширину линии
+                            }
+                        }
+                        .general {
+                            grid-template-columns: 1fr; // Переход на одну колонку
+                            gap: calc(var(--index) * .8);
+
+                            .other {
+                                flex-direction: row; // Располагаем кнопки в ряд на малых экранах
+                                justify-content: center;
+                    
+                                .info, .page-navigation {
+                                    width: auto;
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+                
+                    @media (max-width: 768px) {
+                        .icons {
+                            justify-content: space-around; // Распределяем элементы max
+                            max-width: 80%;
+                                            
+                            .link {
+                                width: calc(var(--index) * 2.5);
+                                height: calc(var(--index) * 2.5);
+                            }
+                        
+                            .line {
+                                display: none; // Убираем линии только на очень маленьких экранах
+                            }
+                        }
+                        .general {
+                            width: 90%;
+                            padding: 0 0 calc(var(--index) * 0.5);
+                            gap: calc(var(--index) * 1);
+                        }
+                
+                        .personal {
+                            font-size: calc(var(--index) * 0.6);
+
+                            .log-info {
+                                .brand {
+                                    font-size: calc(var(--index) * 0.9);
+                                }
+                    
+                                .copyright {
+                                    font-size: calc(var(--index) * 0.4);
+                                }
+                            }
+                    
+                            .other {
+                                flex-direction: column; // Переход кнопок в колонку
+                                gap: calc(var(--index) * 0.5);
+                            }
+                        }
+                    }
+                
+                    @media (max-width: 480px) {
+                        .icons {
+                            justify-content: space-evenly;
+                            gap: calc(var(--index) * 0.4);
+                    
+                            .link {
+                                width: calc(var(--index) * 2);
+                                height: calc(var(--index) * 2);
+                    
+                                img {
+                                    width: 60%;
+                                    height: 60%;
+                                }
+                            }
+                        }
+                        .general {
+                            width: 100%;
+                            grid-template-columns: 1fr;
+                            gap: calc(var(--index) * 0.5);
+
+                            .personal {
+                                font-size: calc(var(--index) * 0.5);
+                            }
+                    
+                            .log-info {
+                                .brand {
+                                    font-size: calc(var(--index) * 0.8);
+                                }
+                    
+                                .copyright {
+                                    font-size: calc(var(--index) * 0.3);
+                                }
+                            }
+                    
+                            .other {
+                                flex-direction: column;
+                                gap: calc(var(--index) * 0.3);
+                            }
+                        }
+                    }
+                                   
                 }
+                
             }
         }
     }
@@ -1086,6 +1271,7 @@ body {
             .subtitle {
                 text-transform: uppercase;
                 text-align: right;
+                font-size: calc(var(--index) * .6);
             }
             .links {
                 font-size: calc(var(--index) * 1.5);
@@ -1124,7 +1310,7 @@ body {
             grid-template: 1fr / .78fr 1.22fr;
 
             .sidebg {
-                background-image: url(/images/test.png);
+                background-image: url(../images/test.png);
                 background-position: center left 23%;
                 background-size: 500%;
                 width: 100%;

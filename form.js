@@ -210,6 +210,36 @@ function closeLoginWindow() {
     }, 400)
 }
 
+
+let logformMain = document.querySelector('.logform-main');
+let mainLogFields = logformMain.querySelector('.log-fields');
+let logformFields = mainLogFields.querySelectorAll('input');
+
+logformFields.forEach(field => {
+    field.addEventListener('input', function () {
+        let marker = this.nextElementSibling;
+
+        if (!marker.classList.contains('marker')) {
+            const parent = this.closest('.form-group');
+            if (parent) {
+                marker = parent.querySelector('.marker');
+            }
+        }
+
+        if (marker) {
+            if (this.validity.valid && this.value) {
+                marker.style.color = 'green';
+                marker.textContent = '●';
+                marker.style.scale = '1.2';
+            } else {
+                marker.style.color = 'red';
+                marker.textContent = '✖';
+                marker.style.scale = '1';
+            }
+        }
+    });
+});
+
 // -------------------------------------------------------------------------------------
 
 let contactWindow = document.querySelector('.contact');
