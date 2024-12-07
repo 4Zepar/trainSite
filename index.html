@@ -33,7 +33,7 @@
                             </div>
                 
                             <div class="form-group">
-                                <input name="password" class="input-style" type="password" pattern="^[a-zA-Z0-9]+$" maxlength="15" placeholder="Password" autocomplete="off" required>
+                                <input name="password" class="input-style" type="password" pattern="^[a-zA-Z0-9]+$" maxlength="15" minlength="5" placeholder="Password" autocomplete="off" required>
                                 <div class="marker">✖</div>
                             </div>
                         </div>
@@ -92,9 +92,7 @@
                 <div class="menu">
                     <button class="button">
                         <div class="line">
-                            <div class="line-top"></div>
-                            <div class="line-mid"></div>
-                            <div class="line-bot"></div>
+                            <img src="/images/free-icon-menu-4254068.png" alt="">
                         </div>
                     </button>
                     <p>menu</p>
@@ -225,7 +223,7 @@
                 
                             <div class="form-group">
                                 <div class="custom-select">
-                                    <input class="input-style" type="text" pattern="[^\d0-9]+" maxlength="25" id="departure" placeholder="Город отправления" autocomplete="off" required>
+                                    <input class="input-style" type="text" pattern="[^\d0-9]+" maxlength="25" id="departure" placeholder="Отбытие" autocomplete="off" required>
                                     <ul id="cityListDeparture" class="city-list">
                                         <li data-value="Minsk">Minsk</li>
                                         <li data-value="Brest">Brest</li>
@@ -242,7 +240,7 @@
                 
                             <div class="form-group">
                                 <div class="custom-select">
-                                    <input class="input-style" type="text" pattern="[^\d0-9]+" maxlength="25" id="destination" placeholder="Город назначения" autocomplete="off" required>
+                                    <input class="input-style" type="text" pattern="[^\d0-9]+" maxlength="25" id="destination" placeholder="Приезд" autocomplete="off" required>
                                     <ul id="cityListDestination" class="city-list">
                                         <li data-value="Minsk">Minsk</li>
                                         <li data-value="Brest">Brest</li>
@@ -271,12 +269,15 @@
                                 <input class="input-style" type="date" autocomplete="off" placeholder="Время прибытия" id="arrivalDate" autocomplete="off" required>
                                 <div class="marker">✖</div>
                             </div>
-                
-                            <div class="button-container">
+
+                            <div class="prise-section">
                                 <div class="prise-content">
                                     <span>$</span>
                                     <span class="amount">-</span>
                                 </div>
+                            </div>
+                            
+                            <div class="button-container">
                                 <button class="form-button" type="submit">For purchase</button>
                             </div>
                         </form>

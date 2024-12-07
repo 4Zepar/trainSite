@@ -61,6 +61,11 @@ document.querySelectorAll('.navbar_elem')[3].addEventListener('click', function(
     targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
 });
 
+document.querySelectorAll('.navbar_elem')[2].addEventListener('click', function() {
+    let targetElement = document.querySelector('.about');
+    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+
 // -------------------------------------------------------------------------------------------------
 
 const contact = document.getElementById('.contact');
