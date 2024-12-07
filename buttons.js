@@ -55,16 +55,26 @@ footerObserver.observe(footer);
 
 // -------------------------------------------------------------------------------------------------
 
+let linkBtns = document.querySelectorAll('.links');
+let helpBtns = document.querySelectorAll('.help');
 
-document.querySelectorAll('.navbar_elem')[3].addEventListener('click', function() {
-    let targetElement = document.querySelector('.footer');
-    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-});
+linkBtns.forEach(button => {
+    button.addEventListener('click', function() {
+        let targetElement = document.querySelector('.footer');
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+})
 
-document.querySelectorAll('.navbar_elem')[2].addEventListener('click', function() {
-    let targetElement = document.querySelector('.about');
-    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-});
+helpBtns.forEach(button => {
+    button.addEventListener('click', function() {
+        let targetElement = document.querySelector('.about');
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+})
+
+
+
+
 
 // -------------------------------------------------------------------------------------------------
 

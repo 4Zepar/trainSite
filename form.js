@@ -162,28 +162,32 @@ submitButton.addEventListener('mouseout', function(e) {
 // -------------------------------------------------------------------------------------
 
 let headButtons = document.querySelectorAll('.navbar_elem')
+let logButtons = document.querySelectorAll('.login')
 let loginWindow = document.querySelector('.login-form');
 let loginScreen = document.querySelector('.login-screen');
 
 // headButtons[1].style.display = 'none';
 
-headButtons[1].addEventListener('click', function(e) {
-    e.preventDefault();
-
-    setTimeout(() => {
-        loginScreen.style.display = 'flex';
-
+logButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+    
         setTimeout(() => {
-            loginScreen.style.opacity = '1'; 
-            loginScreen.style.backdropFilter = 'blur(.5em)';
-           
+            loginScreen.style.display = 'flex';
+    
             setTimeout(() => {
-                loginWindow.style.transform = `translateY(calc(var(--index) * 0))`; 
-                loginWindow.style.opacity = '1'; 
-            }, 200)
-        }, 10)
-    }, 10);
+                loginScreen.style.opacity = '1'; 
+                loginScreen.style.backdropFilter = 'blur(.5em)';
+               
+                setTimeout(() => {
+                    loginWindow.style.transform = `translateY(calc(var(--index) * 0))`; 
+                    loginWindow.style.opacity = '1'; 
+                }, 200)
+            }, 10)
+        }, 10);
+    });
 });
+
 
 loginScreen.addEventListener('click', function(e) {
     if (e.target === loginScreen) {
@@ -244,23 +248,26 @@ logformFields.forEach(field => {
 
 let contactWindow = document.querySelector('.contact');
 let contactScreen = document.querySelector('.contact-screen');
+let contactBtns = document.querySelectorAll('.contct')
 
-headButtons[0].addEventListener('click', function(e) {
-    e.preventDefault();
-
-    setTimeout(() => {
-        contactScreen.style.display = 'flex';
-
+contactBtns.forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+    
         setTimeout(() => {
-            contactScreen.style.opacity = '1'; 
-            contactScreen.style.backdropFilter = 'blur(.5em)';
-           
+            contactScreen.style.display = 'flex';
+    
             setTimeout(() => {
-                contactWindow.style.transform = `translateY(calc(var(--index) * 0))`; 
-                contactWindow.style.opacity = '1'; 
-            }, 200)
-        }, 10)
-    }, 10);
+                contactScreen.style.opacity = '1'; 
+                contactScreen.style.backdropFilter = 'blur(.5em)';
+               
+                setTimeout(() => {
+                    contactWindow.style.transform = `translateY(calc(var(--index) * 0))`; 
+                    contactWindow.style.opacity = '1'; 
+                }, 200)
+            }, 10)
+        }, 10);
+    });
 });
 
 contactScreen.addEventListener('click', function(e) {
@@ -289,3 +296,4 @@ function closeContactWindow() {
 }
 
 
+console.log(headButtons);

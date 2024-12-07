@@ -165,11 +165,48 @@ window.onload = function () {
 
 //------------------------------------------------------------------------------------
 
-document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.getElementById("menuToggle");
-    const navbar = document.getElementById("navbar");
+let adaptHeader = document.querySelector('.adapt-header');
+let showBtn = document.querySelector('.show');
 
-    menuToggle.addEventListener("click", () => {
-        navbar.classList.toggle("active");
-    });
+showBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    setTimeout(() => {
+        adaptHeader.style.display = 'flex';
+
+        setTimeout(() => {
+            adaptHeader.style.opacity = '1'; 
+            adaptHeader.style.filter = 'blur(0)';
+        }, 10)
+    }, 10);
 });
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeHeaderWindow();
+    }
+});
+
+function closeHeaderWindow() {
+    
+    setTimeout(() => {
+        adaptHeader.style.opacity = '0'; 
+        adaptHeader.style.filter = ' blur(2em)';
+        setTimeout(() => {
+            adaptHeader.style.display = 'none';
+        }, 200)
+    }, 50)
+}
+
+
+const headItems = document.querySelectorAll(".navbar_elem");
+
+headItems.forEach((item, index) => {
+    if (index === 4) {
+        return;
+    }
+
+    item.addEventListener("click", () => {
+        closeHeaderWindow();
+    });
+});  
