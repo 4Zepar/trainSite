@@ -5,8 +5,33 @@
   box-sizing: border-box;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 :root {
   --index: calc(1vw + 1vh);
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 a:active,
@@ -60,18 +85,9 @@ body {
   position: fixed;
   overflow: hidden;
   scale: 1.2;
-  will-change: transfrom;
+  will-change: transform, filter;
   backface-visibility: hidden;
-  animation-timeline: scroll();
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
-  animation-range: 0 150vh;
-  animation-name: animateBg;
-}
-@keyframes animateBg {
-  to {
-    scale: 1.08;
-  }
+  transition: none;
 }
 .paralax .container .layer1 {
   background-image: url(../images/layer7.png);
@@ -95,24 +111,12 @@ body {
   background-image: url(../images/layer1.png);
 }
 .paralax .container .woomen {
-  background-image: url(../images//train\ night\ копия.png);
-  scale: 6;
+  background-image: url(../images/train\ night\ копия.png);
   filter: blur(10px);
-  animation-timeline: scroll();
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
-  animation-range: 0 150vh;
-  animation-name: trainWindow;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
-}
-@keyframes trainWindow {
-  to {
-    scale: 1;
-    filter: blur(0);
-  }
 }
 .paralax .container .layer-road {
   background-image: url(../images/roadline.png);
@@ -126,40 +130,20 @@ body {
   min-width: 911px;
   will-change: auto;
 }
-@keyframes trainRide {
-  0% {
-    left: -50%;
-  }
-  100% {
-    left: 110%;
-  }
-}
 .paralax .container .train-door {
   background-image: url(../images/train\ door.png);
   opacity: 0;
-  animation-timeline: scroll();
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
-  animation-range: 170vh 270vh;
-  animation-name: trainDoor;
+  filter: blur(10px);
+  position: fixed;
+  inset: 0;
 }
 .paralax .container .train-door::before {
   content: "";
   inset: 0;
   background-color: black;
-  opacity: 20%;
+  opacity: 0.2;
   position: absolute;
   pointer-events: none;
-}
-@keyframes trainDoor {
-  0% {
-    opacity: 0;
-    filter: blur(10px);
-  }
-  100% {
-    opacity: 1;
-    filter: blur(5px);
-  }
 }
 .paralax .adapt-header {
   position: fixed;

@@ -4,12 +4,32 @@
     box-sizing: border-box;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 :root {
 	--index: calc(1vw + 1vh);
 }
-// body::-webkit-scrollbar {
-//     display: none;
-// }
+body::-webkit-scrollbar {
+    display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type='number'] {
+    -moz-appearance: textfield;
+}
 
 a:active, 
 a:hover,  
@@ -52,11 +72,10 @@ body {
     overflow: hidden;
 
     .container {
-        // position: relative;
         width: 100%;
         height: 100%;
         overflow: hidden;
-    
+
         .layer1, .layer2, .layer3, .layer4, 
         .layer5, .layer6, .layer7, .layer-road,
         .layer-train, .layer-grass, .woomen, .train-door {
@@ -67,16 +86,11 @@ body {
             position: fixed;
             overflow: hidden;
             scale: 1.2;
-            will-change: transfom;
-            backface-visibility: hidden; 
-            animation-timeline: scroll();
-            animation-timing-function: ease-in-out;
-            animation-fill-mode: both;
-            animation-range: 0 150vh;
-            animation-name: animateBg;
+            will-change: transform, filter;
+            backface-visibility: hidden;
+            transition: none; // Управляется через JS
         }
-        @keyframes animateBg { to {scale: 1.08} }
-        
+
         .layer1 {
             background-image: url(../images/layer7.png);
         }
@@ -98,21 +112,15 @@ body {
         .layer7 {
             background-image: url(../images/layer1.png);
         }
+
         .woomen {
-            background-image: url(../images//train\ night\ копия.png);
-            scale: 6;
-            filter: blur(10px);
-            animation-timeline: scroll();
-            animation-timing-function: ease-in-out;
-            animation-fill-mode: both;
-            animation-range: 0 150vh;
-            animation-name: trainWindow;
+            background-image: url(../images/train\ night\ копия.png);
+            filter: blur(10px); 
             display: flex;
             align-items: center;
             justify-content: center;
             pointer-events: none;
         }
-        @keyframes trainWindow { to {scale: 1; filter: blur(0)}; }
 
         .layer-road {
             background-image: url(../images/roadline.png);
@@ -121,51 +129,32 @@ body {
         .layer-grass {
             background-image: url(../images/grass.png);
         }
+
         .layer-train {
             background-image: url(../images/train.png);
-            // animation: trainRide 6s linear infinite;
             min-width: 911px;
             will-change: auto;
         }
-    
-        @keyframes trainRide {
-            0% {
-                left: -50%;
-            }
-            100% {
-                left: 110%;
-            }
-        }
-
 
         .train-door {
             background-image: url(../images/train\ door.png);
-            opacity: 0;
-            animation-timeline: scroll();
-            animation-timing-function: ease-in-out;
-            animation-fill-mode: both;
-            animation-range: 170vh 270vh;
-            animation-name: trainDoor;
+            opacity: 0; // Начальная прозрачность
+            filter: blur(10px); // Начальное размытие
+            position: fixed;
+            inset: 0;
         }
+
         .train-door::before {
             content: '';
             inset: 0;
             background-color: black;
-            opacity: 20%;
+            opacity: 0.2;
             position: absolute;
             pointer-events: none;
         }
-        @keyframes trainDoor {
-            0% {
-                opacity: 0;
-                filter: blur(10px);
-            }
-            100% {
-                opacity: 1;
-                filter: blur(5px);
-            }
-        }
     }
+
+
 
     .adapt-header {
         position: fixed;

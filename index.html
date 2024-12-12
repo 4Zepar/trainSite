@@ -11,10 +11,13 @@
     <script src="form.js" defer></script>
     <script src="buttons.js" defer></script>
     <script src="script.js" defer></script>
+    <script src="scroll.js" defer></script>
+    <script src="optimize.js" defer></script>
     <title>Train tickets</title>
 </head>
 <body>
     <div class="login-screen">
+        <h2 class="sr-only">Login Screen</h2>
         <div class="login-form">
             <div class="container">
                 <div class="sidebg">
@@ -31,7 +34,6 @@
                                 <input name="email" class="input-style" maxlength="20" type="email" placeholder="@Email" autocomplete="off" required>
                                 <div class="marker">✖</div>
                             </div>
-                
                             <div class="form-group">
                                 <input name="password" class="input-style" type="password" pattern="^[a-zA-Z0-9]+$" maxlength="15" minlength="5" placeholder="Password" autocomplete="off" required>
                                 <div class="marker">✖</div>
@@ -45,6 +47,7 @@
     </div>
 
     <div class="contact-screen">
+        <h2 class="sr-only">Contact Screen</h2>
         <div class="contact">
             <div class="greetings">
                 <div class="hello-title">Say hello</div>
@@ -63,6 +66,7 @@
     </div>
 
     <div class="modal-screen">
+        <h2 class="sr-only">Modal Screen</h2>
         <div class="modal">
             <div class="container">
                 <div class="title">Thanks for your purchase!</div>
@@ -70,8 +74,9 @@
             </div>
         </div>
     </div>
-    
+
     <div class="paralax">
+        <h2 class="sr-only">Parallax Section</h2>
         <div class="container">
             <div class="layer1"></div>
             <div class="layer2"></div>
@@ -81,13 +86,14 @@
             <div class="layer6"></div>
             <div class="layer7"></div>
             <div class="layer-road"></div>
-            <div class="layer-train"></div>  
+            <div class="layer-train"></div>
             <div class="layer-grass"></div>
             <div class="woomen"></div>
             <div class="train-door"></div>
         </div>
 
         <div class="header">
+            <h2 class="sr-only">Header Section</h2>
             <div class="container">
                 <div class="menu">
                     <button class="button">
@@ -109,6 +115,7 @@
         </div>
 
         <div class="adapt-header">
+            <h2 class="sr-only">Adaptive Header</h2>
             <div class="container">
                 <ul class="navbar"> 
                     <button class="navbar_elem contct">contact</button>
@@ -120,6 +127,7 @@
         </div>
 
         <div class="rights">
+            <h2 class="sr-only">Footer Rights Section</h2>
             <div class="container">
                 <button class="home-button">
                     <div class="circle"></div>
@@ -129,6 +137,7 @@
         </div>
 
         <div class="button-close">
+            <h2 class="sr-only">Close Button</h2>
             <div class="line">
                 <div class="line-left"></div>
                 <div class="line-right"></div>
@@ -136,6 +145,7 @@
         </div>
 
         <article class="title">
+            <h2 class="sr-only">Main Title Section</h2>
             <div class="container">
                 <div class="main-title">
                     Welcome to trainlines
@@ -148,6 +158,7 @@
         </article>
 
         <div class="content-menu">
+            <h2 class="sr-only">Content Menu</h2>
             <div class="container">
                 <ul class="navigation">
                     <li class="navigation-item">
@@ -183,8 +194,10 @@
         </div>
 
         <section class="content">
+            <h2 class="sr-only">Main Content Section</h2>
             <div class="container">
                 <article class="about">
+                    <h2 class="sr-only">About Section</h2>
                     <div class="about-picture"></div>
                     <div class="about-content whyus">
                         <div class="heading">Why us?</div>
@@ -215,7 +228,8 @@
                     </div>
                 </article>
 
-                <article class="form">                    
+                <article class="form">
+                    <h2 class="sr-only">Form Section</h2>
                     <div class="ticket-form">
                         <form name="mainForm" class="form-main" id="trainTicketForm">
                             <div class="form-group">
@@ -232,7 +246,6 @@
                                 <input class="input-style" type="email" placeholder="@Email" autocomplete="off" required>
                                 <div class="marker">✖</div>
                             </div>
-                
                 
                             <div class="form-group">
                                 <div class="custom-select">
@@ -267,37 +280,38 @@
                                 </div>
                                 <div class="marker">✖</div>
                             </div>
-                           
+                
                             <div class="form-group">
-                                <input class="input-style" type="text" name="number" pattern="^[1-9]" min="1" max="10" placeholder="How much" autocomplete="off" required>
+                                <input class="input-style" type="number" name="number" pattern="^[1-9]" min="1" max="10" placeholder="How much" autocomplete="off" required>
                                 <div class="marker">✖</div>
                             </div>
                 
                             <div class="form-group">
-                                <input class="input-style" type="date" autocomplete="off" placeholder="Departure" id="departureDate" autocomplete="off" required>
+                                <input class="input-style" type="date" autocomplete="off" placeholder="Departure" id="departureDate" required>
                                 <div class="marker">✖</div>
                             </div>
                 
                             <div class="form-group">
-                                <input class="input-style" type="date" autocomplete="off" placeholder="Return" id="arrivalDate" autocomplete="off" required>
+                                <input class="input-style" type="date" autocomplete="off" placeholder="Return" id="arrivalDate" required>
                                 <div class="marker">✖</div>
                             </div>
-
+                
                             <div class="prise-section">
                                 <div class="prise-content">
                                     <span>$</span>
                                     <span class="amount">-</span>
                                 </div>
                             </div>
-                            
+                
                             <div class="button-container">
                                 <button class="form-button" type="submit">For purchase</button>
                             </div>
                         </form>
                     </div>
                 </article>
-
+                
                 <article class="offers">
+                    <h2 class="sr-only">Popular Trips</h2>
                     <div class="offers__title">Where our most popular trips</div>
                     <div class="offers__trips">
                         <div class="trips-item">
@@ -334,35 +348,36 @@
                         </div>
                     </div>
                 </article>
-
+                
                 <footer class="footer">
+                    <h2 class="sr-only">Footer Information</h2>
                     <div class="container">
                         <div class="icons">
                             <div class="line"></div>
                             <a class="link" href="https://t.me/atuturu" target="_blank" title="Telegram">
-                              <img src="images//telegram.png" alt="Telegram">
+                                <img src="images/icons/telegram.png" alt="Telegram">
                             </a>
                             <a class="link" href="https://twitter.com/Kryzzer__" target="_blank" title="Twitter">
-                              <img src="images/twitter.png" alt="Twitter">
+                                <img src="images/icons/twitter.png" alt="Twitter">
                             </a>
                             <a class="link" href="https://github.com/4Zepar" target="_blank" title="GitHub">
-                              <img src="images/github.png" alt="GitHub">
+                                <img src="images/icons/github.png" alt="GitHub">
                             </a>
                             <a class="link" href="https://vk.com/id447307232" target="_blank" title="VK">
-                              <img src="images/vk.png" alt="VK">
+                                <img src="images/icons/vk.png" alt="VK">
                             </a>
                             <a class="link" href="https://facebook.com/yourFacebookProfile" target="_blank" title="Facebook">
-                              <img src="images/facebook-app-symbol.png" alt="Facebook">
+                                <img src="images/icons/facebook-app-symbol.png" alt="Facebook">
                             </a>
                             <div class="line"></div>
-                          </div>
+                        </div>
                         <div class="general">
                             <div class="personal">
                                 Website by Lukerchyk Daniil <br>(BSTU 2 course FIT group 4-2)
                             </div>
                             <div class="log-info">
                                 <div class="brand"><span>TRAIN</span>LINES</div>
-                                <div class="copyright">Copyright © 2024</div>   
+                                <div class="copyright">Copyright © 2024</div>
                             </div>
                             <div class="other">
                                 <button class="info">Contact us</button>
