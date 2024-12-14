@@ -83,14 +83,16 @@ document.forms.mainForm.addEventListener('submit', function(e) {
 // -------------------------------------------------------------------------------------
 
 
-flatpickr("#departureDate", {
-    minDate: "today",
-    allowInput: true
-});
+document.addEventListener("DOMContentLoaded", () => {
+    flatpickr("#departureDate", {
+        minDate: "today",
+        allowInput: true
+    });
 
-flatpickr("#arrivalDate", {
-    minDate: "today",
-    allowInput: true
+    flatpickr("#arrivalDate", {
+        minDate: "today",
+        allowInput: true
+    });
 });
 
 

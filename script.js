@@ -10,7 +10,7 @@ window.onload = function () {
         let layer6 = document.querySelector('.layer6');
         let layer7 = document.querySelector('.layer7');
         let layerGrass = document.querySelector('.layer-grass');
-        
+    
         let forLayer1 = 30;
         let forLayer2 = 20;
         let forLayer3 = 10;
@@ -19,19 +19,24 @@ window.onload = function () {
         let forLayer6 = 13;
         let forLayer7 = 8;
         let forLayerGrass = 18;
-
+    
         let koef = 0.2;
-
+    
         let positionX = 0, positionY = 0;
         let coordXprocent = 0, coordYprocent = 0;
-
+    
+        let isParallaxActive = false; // Флаг для контроля состояния параллакса
+    
+        // Функция параллакса
         let ParalaxStyles = () => {
+            if (!isParallaxActive) return; // Если параллакс не активен, не продолжаем анимацию
+    
             let distX = coordXprocent - positionX;
             let distY = coordYprocent - positionY;
-
+    
             positionX = positionX = (distX * koef);
             positionY = positionY = (distY * koef);
-
+    
             layer1.style.cssText = `transform: translate(${positionX / forLayer1}%, ${positionY / forLayer1}%);`;
             layer2.style.cssText = `transform: translate(${positionX / forLayer2}%, ${positionY / forLayer2}%);`;
             layer3.style.cssText = `transform: translate(${positionX / forLayer3}%, ${positionY / forLayer3}%);`;
@@ -40,22 +45,47 @@ window.onload = function () {
             layer6.style.cssText = `transform: translate(${positionX / forLayer6}%, ${positionY / forLayer6}%);`;
             layer7.style.cssText = `transform: translate(${positionX / forLayer7}%, ${positionY / forLayer7}%);`;
             layerGrass.style.cssText = `transform: translate(${positionX / forLayerGrass}%, ${positionY / forLayerGrass}%);`;
-
-            requestAnimationFrame(ParalaxStyles);
-        }
-        ParalaxStyles();
-
+    
+            requestAnimationFrame(ParalaxStyles); // Продолжаем анимацию
+        };
+    
+        // Функция для отслеживания движения мыши
         paralax.addEventListener("mousemove", function (e) {
             let paralaxW = paralax.offsetWidth;
             let paralaxH = paralax.offsetHeight;
-
+    
             let coordX = e.pageX - paralaxW / 2;
             let coordY = e.pageY - paralaxH / 2;
-
+    
             coordXprocent = coordX / paralaxW * 100;
             coordYprocent = coordY / paralaxH * 100;
         });
+    
+        // Создание Intersection Observer для отслеживания видимости элемента
+        let observerOptions = {
+            root: null, // Относительно видимой области
+            threshold: 0.1 // Когда хотя бы 10% элемента становятся видимыми
+        };
+    
+        let observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Когда параллакс элемент виден, включаем параллакс
+                    isParallaxActive = true;
+                    ParalaxStyles(); // Запускаем параллакс
+                } else {
+                    // Когда параллакс элемент скрыт, отключаем параллакс
+                    isParallaxActive = false;
+                }
+            });
+        };
+    
+        let observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+        // Наблюдаем за элементом параллакса
+        observer.observe(paralax);
     }
+    
 
 
     
