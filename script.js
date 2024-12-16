@@ -25,11 +25,10 @@ window.onload = function () {
         let positionX = 0, positionY = 0;
         let coordXprocent = 0, coordYprocent = 0;
     
-        let isParallaxActive = false; // Флаг для контроля состояния параллакса
+        let isParallaxActive = false; 
     
-        // Функция параллакса
         let ParalaxStyles = () => {
-            if (!isParallaxActive) return; // Если параллакс не активен, не продолжаем анимацию
+            if (!isParallaxActive) return;
     
             let distX = coordXprocent - positionX;
             let distY = coordYprocent - positionY;
@@ -46,10 +45,9 @@ window.onload = function () {
             layer7.style.cssText = `transform: translate(${positionX / forLayer7}%, ${positionY / forLayer7}%);`;
             layerGrass.style.cssText = `transform: translate(${positionX / forLayerGrass}%, ${positionY / forLayerGrass}%);`;
     
-            requestAnimationFrame(ParalaxStyles); // Продолжаем анимацию
+            requestAnimationFrame(ParalaxStyles); 
         };
-    
-        // Функция для отслеживания движения мыши
+
         paralax.addEventListener("mousemove", function (e) {
             let paralaxW = paralax.offsetWidth;
             let paralaxH = paralax.offsetHeight;
@@ -61,20 +59,18 @@ window.onload = function () {
             coordYprocent = coordY / paralaxH * 100;
         });
     
-        // Создание Intersection Observer для отслеживания видимости элемента
         let observerOptions = {
-            root: null, // Относительно видимой области
-            threshold: 0.1 // Когда хотя бы 10% элемента становятся видимыми
+            root: null,
+            threshold: 0.1 
         };
     
         let observerCallback = (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Когда параллакс элемент виден, включаем параллакс
+
                     isParallaxActive = true;
-                    ParalaxStyles(); // Запускаем параллакс
+                    ParalaxStyles(); 
                 } else {
-                    // Когда параллакс элемент скрыт, отключаем параллакс
                     isParallaxActive = false;
                 }
             });
@@ -82,159 +78,105 @@ window.onload = function () {
     
         let observer = new IntersectionObserver(observerCallback, observerOptions);
     
-        // Наблюдаем за элементом параллакса
         observer.observe(paralax);
     }
-    
 
 
     
+    // Обработчик прокрутки с throttle
     let road = document.querySelector('.layer-road');
-
-    window.addEventListener("scroll", function (e) {
+    let lastScrollY = 0;
+    const speed = 0.3;
+    const handleScroll = () => {
         let height = window.scrollY;
-        let speed = 0.3;
-        
-        road.style.cssText = `transform: translateY(${height * speed}px);`;
+        road.style.transform = `translateY(${height * speed}px)`;
+    };
+    window.addEventListener("scroll", () => {
+        if (Math.abs(lastScrollY - window.scrollY) > 20) { // throttle, ограничиваем частоту
+            handleScroll();
+            lastScrollY = window.scrollY;
+        }
     });
 
-      
-    
-
-
-
+    // Обработчик меню
     let menu = document.querySelector('.line');
     let button = document.querySelector('.menu');
+    let zeroScale = () => button.style.transform = 'scale(1)';
 
-    let zeroScale = () => {
-        button.style.cssText = `scale: 1.`;
-    }
+    const toggleMenu = (isOpen) => {
+        menu.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0)';
+        button.style.transform = isOpen ? 'scale(1.05)' : 'scale(1)';
+    };
 
-    button.addEventListener('mouseover', function (e) {
-
-        menu.style.cssText = `transform: rotate(180deg);`;
-        button.style.cssText = `scale: 1.05`;
+    button.addEventListener('mouseover', () => toggleMenu(true));
+    button.addEventListener('mouseout', () => toggleMenu(false));
+    button.addEventListener('click', () => {
+        toggleMenu(true);
         setTimeout(zeroScale, 200);
     });
 
-    button.addEventListener('mouseout', function (e) {
-
-        menu.style.cssText = `transform: rotate(0);`;
-    });
-
-    button.addEventListener('click', function (e) {
-
-        button.style.cssText = `scale: 1.05`;
-        setTimeout(zeroScale, 200);
-    });
-
-
-
-
+    // Закрытие меню
     let closeButton = document.querySelector('.button-close');
     let contentMenu = document.querySelector('.content-menu');
-    button.addEventListener('click', function() {
-        contentMenu.style.transform = 'translateX(0%)';
-        closeButton.style.scale = '1';
-        closeButton.style.transform = 'rotate(90deg)';
-    });
-    closeButton.addEventListener('click', function (e) {
+    const toggleContentMenu = (isOpen) => {
+        contentMenu.style.transform = isOpen ? 'translateX(0%)' : 'translateX(-101%)';
+        closeButton.style.transform = isOpen ? 'rotate(90deg)' : 'rotate(-90deg)';
+        closeButton.style.scale = isOpen ? '1' : '0';
+    };
 
-        closeButton.style.cssText = `scale: 1.05`;
-        setTimeout(zeroScale, 200);
-    });
-    closeButton.addEventListener('click', function() {
-        contentMenu.style.transform = 'translateX(-101%)';
-        closeButton.style.scale = '0';
-        closeButton.style.transform = 'rotate(-90deg)';
-    });
+    button.addEventListener('click', () => toggleContentMenu(true));
+    closeButton.addEventListener('click', () => toggleContentMenu(false));
 
-    document.querySelector('.page-navigation').addEventListener('click', function() {
-        contentMenu.style.transform = 'translateX(0%)';
-        closeButton.style.scale = '1';
-        closeButton.style.transform = 'rotate(90deg)';
-    });
-
-   
-
+    // Копирование почты
     let mail = document.querySelector('.mail');
-    mail.addEventListener('click', function () {
-        navigator.clipboard.writeText(mail.innerText).then(function() {
+    mail.addEventListener('click', () => {
+        navigator.clipboard.writeText(mail.innerText).then(() => {
             alert('Copied to clipboard');
         });
     });
 
-    //------------------------------------------------------------------------------------
-
+    // Обработчик для навигации
     const navItems = document.querySelectorAll(".navigation-item");
     const sections = document.querySelectorAll("article");
 
     navItems.forEach((item, index) => {
-      item.addEventListener("click", () => {
-        
-        if (index == 0) {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-                block: "center",
-            });
-        } else {
-            sections[index].scrollIntoView({
-                behavior: "smooth",
-                block: "center",
-            });
-        }
-        contentMenu.style.transform = 'translateX(-101%)';
-        closeButton.style.scale = '0';
-        closeButton.style.transform = 'rotate(-90deg)';
-      });
-    });     
-}
-
-//------------------------------------------------------------------------------------
-
-let adaptHeader = document.querySelector('.adapt-header');
-let showBtn = document.querySelector('.show');
-
-showBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-
-    setTimeout(() => {
-        adaptHeader.style.display = 'flex';
-
-        setTimeout(() => {
-            adaptHeader.style.opacity = '1'; 
-            adaptHeader.style.filter = 'blur(0)';
-        }, 10)
-    }, 10);
-});
-
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeHeaderWindow();
-    }
-});
-
-function closeHeaderWindow() {
-    
-    setTimeout(() => {
-        adaptHeader.style.opacity = '0'; 
-        adaptHeader.style.filter = ' blur(2em)';
-        setTimeout(() => {
-            adaptHeader.style.display = 'none';
-        }, 200)
-    }, 50)
-}
-
-
-const headItems = document.querySelectorAll(".navbar_elem");
-
-headItems.forEach((item, index) => {
-    if (index === 4) {
-        return;
-    }
-
-    item.addEventListener("click", () => {
-        closeHeaderWindow();
+        item.addEventListener("click", () => {
+            const targetSection = index === 0 ? 0 : sections[index];
+            targetSection.scrollIntoView({ behavior: "smooth", block: "center" });
+            toggleContentMenu(false); // Закрываем меню после клика
+        });
     });
-});  
+}
+
+    // Работа с адаптивным хедером
+    let adaptHeader = document.querySelector('.adapt-header');
+    let showBtn = document.querySelector('.show');
+    const openHeaderWindow = () => {
+        adaptHeader.style.display = 'flex';
+        setTimeout(() => {
+            adaptHeader.style.opacity = '1';
+            adaptHeader.style.filter = 'blur(0)';
+        }, 10);
+    };
+
+    const closeHeaderWindow = () => {
+        adaptHeader.style.opacity = '0';
+        adaptHeader.style.filter = 'blur(2em)';
+        setTimeout(() => adaptHeader.style.display = 'none', 200);
+    };
+
+    showBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openHeaderWindow();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeHeaderWindow();
+    });
+
+    const headItems = document.querySelectorAll(".navbar_elem");
+    headItems.forEach((item, index) => {
+        if (index === 4) return;
+        item.addEventListener("click", closeHeaderWindow);
+    });
+

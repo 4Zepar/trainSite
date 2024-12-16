@@ -23,7 +23,7 @@ function setupCustomSelect(inputId, listId) {
         if (e.target.tagName === 'LI') {
             input.value = e.target.getAttribute('data-value');  
             list.style.display = 'none';  
-            input.dispatchEvent(new Event('input')); // Оповещение о изменении
+            input.dispatchEvent(new Event('input')); 
         }
     });
 
