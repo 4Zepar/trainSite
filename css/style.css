@@ -128,7 +128,7 @@ input[type=number] {
   background-image: url(../images/grass.webp);
 }
 .paralax .container .woomen {
-  background-image: url(../images/train\ night\ копия.webp);
+  background-image: url(../images/train-night-копия.webp);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1246,7 +1246,7 @@ input[type=number] {
   grid-template: 1fr/0.78fr 1.22fr;
 }
 .login-screen .login-form .container .sidebg {
-  background-image: url(../images/test.png);
+  background-image: url(../images/test.webp);
   background-position: center left 23%;
   background-size: 500%;
   width: 100%;
