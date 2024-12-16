@@ -83,7 +83,6 @@ window.onload = function () {
 
 
     
-    // Обработчик прокрутки с throttle
     let road = document.querySelector('.layer-road');
     let lastScrollY = 0;
     const speed = 0.3;
@@ -92,13 +91,14 @@ window.onload = function () {
         road.style.transform = `translateY(${height * speed}px)`;
     };
     window.addEventListener("scroll", () => {
-        if (Math.abs(lastScrollY - window.scrollY) > 20) { // throttle, ограничиваем частоту
+        if (Math.abs(lastScrollY - window.scrollY) > 20) {
             handleScroll();
             lastScrollY = window.scrollY;
         }
     });
 
-    // Обработчик меню
+
+
     let menu = document.querySelector('.line');
     let button = document.querySelector('.menu');
     let zeroScale = () => button.style.transform = 'scale(1)';
@@ -115,7 +115,8 @@ window.onload = function () {
         setTimeout(zeroScale, 200);
     });
 
-    // Закрытие меню
+
+    
     let closeButton = document.querySelector('.button-close');
     let contentMenu = document.querySelector('.content-menu');
     const toggleContentMenu = (isOpen) => {
@@ -127,7 +128,7 @@ window.onload = function () {
     button.addEventListener('click', () => toggleContentMenu(true));
     closeButton.addEventListener('click', () => toggleContentMenu(false));
 
-    // Копирование почты
+
     let mail = document.querySelector('.mail');
     mail.addEventListener('click', () => {
         navigator.clipboard.writeText(mail.innerText).then(() => {
@@ -135,7 +136,8 @@ window.onload = function () {
         });
     });
 
-    // Обработчик для навигации
+
+
     const navItems = document.querySelectorAll(".navigation-item");
     const sections = document.querySelectorAll("article");
 
@@ -143,12 +145,12 @@ window.onload = function () {
         item.addEventListener("click", () => {
             const targetSection = index === 0 ? 0 : sections[index];
             targetSection.scrollIntoView({ behavior: "smooth", block: "center" });
-            toggleContentMenu(false); // Закрываем меню после клика
+            toggleContentMenu(false); 
         });
     });
 }
 
-    // Работа с адаптивным хедером
+
     let adaptHeader = document.querySelector('.adapt-header');
     let showBtn = document.querySelector('.show');
     const openHeaderWindow = () => {
