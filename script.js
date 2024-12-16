@@ -90,14 +90,12 @@ window.onload = function () {
 
     
     let road = document.querySelector('.layer-road');
-    let train = document.querySelector('.layer-train');
 
     window.addEventListener("scroll", function (e) {
         let height = window.scrollY;
         let speed = 0.3;
         
         road.style.cssText = `transform: translateY(${height * speed}px);`;
-        train.style.cssText = `transform: translateY(${height * speed}px);`;
     });
 
       

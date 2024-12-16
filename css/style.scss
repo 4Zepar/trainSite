@@ -98,29 +98,29 @@ body {
         }
 
         .layer1 {
-            background-image: url(../images/layer7.png);
+            background-image: url(../images/layer7.webp);
         }
         .layer2 {
-            background-image: url(../images/layer6.png);
+            background-image: url(../images/layer6.webp);
         }
         .layer3 {
-            background-image: url(../images/layer5.png);
+            background-image: url(../images/layer5.webp);
         }
         .layer4 {
-            background-image: url(../images/layer4.png);
+            background-image: url(../images/layer4.webp);
         }
         .layer5 {
-            background-image: url(../images/layer3.png);
+            background-image: url(../images/layer3.webp);
         }
         .layer6 {
-            background-image: url(../images/layer2.png);
+            background-image: url(../images/layer2.webp);
         }
         .layer7 {
-            background-image: url(../images/layer1.png);
+            background-image: url(../images/layer1.webp);
         }
 
         .woomen {
-            background-image: url(../images/train\ night\ копия.png);
+            background-image: url(../images/train\ night\ копия.webp);
             filter: blur(10px); 
             display: flex;
             align-items: center;
@@ -129,21 +129,15 @@ body {
         }
 
         .layer-road {
-            background-image: url(../images/roadline.png);
+            background-image: url(../images/road.webp);
             will-change: auto;
         }
         .layer-grass {
-            background-image: url(../images/grass.png);
-        }
-
-        .layer-train {
-            background-image: url(../images/train.png);
-            min-width: 911px;
-            will-change: auto;
+            background-image: url(../images/grass.webp);
         }
 
         .train-door {
-            background-image: url(../images/train\ door.png);
+            background-image: url(../images/train-door.webp);
             opacity: 0; // Начальная прозрачность
             filter: blur(10px); // Начальное размытие
             position: fixed;
@@ -600,7 +594,7 @@ body {
 
                 &-picture {
                     grid-row: 1/4;
-                    background-image: url(../images/original.png);
+                    background-image: url(../images/original.webp);
                     background-size: cover;
                     background-position: center;
                     border-radius: calc(var(--index) * 1.2);
