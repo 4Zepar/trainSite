@@ -19,9 +19,6 @@ body {
   font-family: "Quicksand", sans-serif;
   height: 500vh;
 }
-body::-webkit-scrollbar {
-  display: none;
-}
 
 a {
   text-decoration: none;
