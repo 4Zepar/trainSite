@@ -143,8 +143,16 @@ window.onload = function () {
 
     navItems.forEach((item, index) => {
         item.addEventListener("click", () => {
-            const targetSection = index === 0 ? 0 : sections[index];
-            targetSection.scrollIntoView({ behavior: "smooth", block: "center" });
+            if (index === 0) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            } else {
+                const targetSection = sections[index];
+                targetSection.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+    
             toggleContentMenu(false); 
         });
     });
