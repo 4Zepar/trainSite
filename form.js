@@ -250,7 +250,7 @@ logformFields.forEach(field => {
 
 let contactWindow = document.querySelector('.contact');
 let contactScreen = document.querySelector('.contact-screen');
-let contactBtns = document.querySelectorAll('.contct')
+let contactBtns = document.querySelectorAll('.contct');
 
 contactBtns.forEach(button => {
     button.addEventListener('click', function(e) {

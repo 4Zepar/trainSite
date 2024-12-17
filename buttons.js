@@ -41,12 +41,16 @@ toggleButtonVisibility(footer, true);
 
 // -------------------------------------------------------------------------------------------------
 
-document.querySelector('.links').addEventListener('click', () => {
-    document.querySelector('.footer').scrollIntoView({ behavior: 'smooth', block: 'center' });
-});
-document.querySelector('.help').addEventListener('click', () => {
-    document.querySelector('.about').scrollIntoView({ behavior: 'smooth', block: 'center' });
-});
+document.querySelectorAll('.links_h').forEach(item => {
+    item.addEventListener('click', () => {
+        document.querySelector('.footer').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+})
+document.querySelectorAll('.help').forEach(item => {
+    item.addEventListener('click', () => {
+        document.querySelector('.about').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+})
 
 // -------------------------------------------------------------------------------------------------
 
