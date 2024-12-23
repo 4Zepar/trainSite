@@ -188,7 +188,7 @@ input {
                 border-radius: calc(var(--index) * 1);
                 backdrop-filter: blur(calc(var(--index) * .2));
 
-                .navbar_elem {
+                .navbar__elem {
                     background-color: white;
                     padding: calc(var(--index) * .11) calc(var(--index) * 1.1); 
                     border-radius: 2em;
@@ -235,7 +235,7 @@ input {
                 border-radius: 2em;
                 backdrop-filter: blur(calc(var(--index) * .2));
     
-                .navbar_elem {
+                .navbar__elem {
                     background-color: white;
                     padding: calc(var(--index) * .11) calc(var(--index) * 1.1); 
                     border-radius: 2em;
@@ -253,19 +253,19 @@ input {
 
                 @media (max-width: 480px) {
                     
-                    .navbar_elem:nth-child(1) {
+                    .navbar__elem:nth-child(1) {
                         display: none;
                     }
-                    .navbar_elem:nth-child(2) {
+                    .navbar__elem:nth-child(2) {
                         display: none;
                     }
-                    .navbar_elem:nth-child(3) {
+                    .navbar__elem:nth-child(3) {
                         display: none;
                     }
-                    .navbar_elem:nth-child(4) {
+                    .navbar__elem:nth-child(4) {
                         display: none;
                     }
-                    .navbar_elem:nth-child(5) {
+                    .navbar__elem:nth-child(5) {
                         display: flex;
                     }
                 }

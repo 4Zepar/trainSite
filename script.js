@@ -184,7 +184,7 @@ window.onload = function () {
         if (e.key === 'Escape') closeHeaderWindow();
     });
 
-    const headItems = document.querySelectorAll(".navbar_elem");
+    const headItems = document.querySelectorAll(".navbar__elem");
     headItems.forEach((item, index) => {
         if (index === 4) return;
         item.addEventListener("click", closeHeaderWindow);

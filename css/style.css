@@ -19,6 +19,9 @@ body {
   font-family: "Quicksand", sans-serif;
   height: 500vh;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
 
 a {
   text-decoration: none;
@@ -182,7 +185,7 @@ input[type=number] {
   -webkit-backdrop-filter: blur(calc(var(--index) * 0.2));
           backdrop-filter: blur(calc(var(--index) * 0.2));
 }
-.paralax .adapt-header .container .navbar .navbar_elem {
+.paralax .adapt-header .container .navbar .navbar__elem {
   background-color: white;
   padding: calc(var(--index) * 0.11) calc(var(--index) * 1.1);
   border-radius: 2em;
@@ -223,7 +226,7 @@ input[type=number] {
   -webkit-backdrop-filter: blur(calc(var(--index) * 0.2));
           backdrop-filter: blur(calc(var(--index) * 0.2));
 }
-.paralax .header .container .navbar .navbar_elem, .paralax .header .container .menu .navbar_elem {
+.paralax .header .container .navbar .navbar__elem, .paralax .header .container .menu .navbar__elem {
   background-color: white;
   padding: calc(var(--index) * 0.11) calc(var(--index) * 1.1);
   border-radius: 2em;
@@ -231,26 +234,26 @@ input[type=number] {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-.paralax .header .container .navbar .navbar_elem:hover, .paralax .header .container .menu .navbar_elem:hover {
+.paralax .header .container .navbar .navbar__elem:hover, .paralax .header .container .menu .navbar__elem:hover {
   padding: calc(var(--index) * 0.11) calc(var(--index) * 1.5);
 }
-.paralax .header .container .navbar .navbar_elem:nth-child(5), .paralax .header .container .menu .navbar_elem:nth-child(5) {
+.paralax .header .container .navbar .navbar__elem:nth-child(5), .paralax .header .container .menu .navbar__elem:nth-child(5) {
   display: none;
 }
 @media (max-width: 480px) {
-  .paralax .header .container .navbar .navbar_elem:nth-child(1), .paralax .header .container .menu .navbar_elem:nth-child(1) {
+  .paralax .header .container .navbar .navbar__elem:nth-child(1), .paralax .header .container .menu .navbar__elem:nth-child(1) {
     display: none;
   }
-  .paralax .header .container .navbar .navbar_elem:nth-child(2), .paralax .header .container .menu .navbar_elem:nth-child(2) {
+  .paralax .header .container .navbar .navbar__elem:nth-child(2), .paralax .header .container .menu .navbar__elem:nth-child(2) {
     display: none;
   }
-  .paralax .header .container .navbar .navbar_elem:nth-child(3), .paralax .header .container .menu .navbar_elem:nth-child(3) {
+  .paralax .header .container .navbar .navbar__elem:nth-child(3), .paralax .header .container .menu .navbar__elem:nth-child(3) {
     display: none;
   }
-  .paralax .header .container .navbar .navbar_elem:nth-child(4), .paralax .header .container .menu .navbar_elem:nth-child(4) {
+  .paralax .header .container .navbar .navbar__elem:nth-child(4), .paralax .header .container .menu .navbar__elem:nth-child(4) {
     display: none;
   }
-  .paralax .header .container .navbar .navbar_elem:nth-child(5), .paralax .header .container .menu .navbar_elem:nth-child(5) {
+  .paralax .header .container .navbar .navbar__elem:nth-child(5), .paralax .header .container .menu .navbar__elem:nth-child(5) {
     display: flex;
   }
 }

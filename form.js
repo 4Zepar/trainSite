@@ -163,7 +163,7 @@ submitButton.addEventListener('mouseout', function(e) {
 
 // -------------------------------------------------------------------------------------
 
-let headButtons = document.querySelectorAll('.navbar_elem')
+let headButtons = document.querySelectorAll('.navbar__elem')
 let logButtons = document.querySelectorAll('.login')
 let loginWindow = document.querySelector('.login-form');
 let loginScreen = document.querySelector('.login-screen');

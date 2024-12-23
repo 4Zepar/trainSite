@@ -41,7 +41,7 @@ toggleButtonVisibility(footer, true);
 
 // -------------------------------------------------------------------------------------------------
 
-document.querySelectorAll('.links_h').forEach(item => {
+document.querySelectorAll('.linksh').forEach(item => {
     item.addEventListener('click', () => {
         document.querySelector('.footer').scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
